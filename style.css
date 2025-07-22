@@ -1,0 +1,171 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: #000;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+/* Font Setup */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #000;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+.site-title,
+h2,
+footer strong {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-weight: 400;
+}
+
+footer,
+.about p,
+.banner p {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* Header */
+.site-header {
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logo-container {
+  position: absolute;
+  left: 1rem;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+}
+
+.site-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Banner */
+.banner {
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.banner-content {
+  max-width: 80%;
+  margin: 2rem auto 0;
+  padding-bottom: 1rem;
+}
+
+.banner h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.banner p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.8;
+}
+
+/* About Section */
+.about {
+  padding: 2rem 1rem;
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  font-size: 1rem;
+}
+
+/* Footer */
+footer {
+  background-color: #f0f0f0;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0.5rem 0;
+}
+
+.social-icons {
+  margin: 1rem 0;
+}
+
+.social-icons a {
+  margin: 0 12px;
+  font-size: 1.6rem;
+  color: #000;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #555;
+}
+
+ion-icon {
+  font-size: 40px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .site-title {
+    font-size: 1.5rem;
+  }
+
+  .logo {
+    height: 50px;
+    width: auto;
+  }
+
+  .banner h2 {
+    font-size: 1.5rem;
+  }
+
+  .banner p,
+  .about p {
+    font-size: 0.95rem;
+  }
+}
