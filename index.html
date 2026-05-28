@@ -9,25 +9,28 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blue-bright:  #1E90FF;
-      --blue-mid:     #1565C0;
-      --blue-deep:    #0A2A6E;
-      --blue-glow:    #3AB5FF;
-      --black:        #0A0A0F;
-      --black-card:   #0F1221;
-      --black-soft:   #141828;
-      --black-border: #1C2540;
-      --text-main:    #E8F0FF;
-      --text-muted:   #7A9ABF;
-      --text-body:    #B8CCEB;
-      --shadow-blue:  0 4px 28px rgba(30,144,255,0.15);
+      --bg-base:      #0D1117;
+      --bg-card:      #162032;
+      --bg-soft:      #111A28;
+      --bg-hover:     #1C2A3E;
+      --teal:         #2DD4BF;
+      --teal-dim:     #1DA898;
+      --cyan:         #0EA5E9;
+      --cyan-dim:     #0284C7;
+      --border:       #1E2D42;
+      --border-hover: #2A3F58;
+      --text-main:    #E2EEF8;
+      --text-body:    #94A3B8;
+      --text-muted:   #4E6A85;
+      --shadow:       0 4px 24px rgba(0,0,0,0.4);
+      --glow-teal:    0 0 20px rgba(45,212,191,0.12);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: var(--black);
+      background: var(--bg-base);
       color: var(--text-body);
       line-height: 1.75;
       overflow-x: hidden;
@@ -35,202 +38,198 @@
 
     /* ── HEADER ─────────────────────────────────────── */
     .site-header {
-      background: linear-gradient(180deg, #000000 0%, #080d1a 100%);
-      border-bottom: 2px solid var(--blue-mid);
-      padding: 18px 32px;
+      background: #0A0F18;
+      border-bottom: 1px solid var(--border);
+      padding: 20px 32px;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 24px rgba(30,144,255,0.25);
+      box-shadow: 0 1px 0 var(--border), 0 4px 24px rgba(0,0,0,0.5);
     }
     .header-content {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
     .logo {
-      height: 62px;
-      width: 62px;
+      height: 64px;
+      width: 64px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid var(--blue-bright);
-      box-shadow: 0 0 16px rgba(30,144,255,0.45);
+      border: 2px solid var(--teal);
+      box-shadow: 0 0 0 4px rgba(45,212,191,0.1);
     }
     .site-title {
       font-family: 'Yatra One', cursive;
-      font-size: clamp(1.6rem, 5vw, 2.6rem);
-      color: var(--blue-bright);
+      font-size: clamp(1.7rem, 5vw, 2.8rem);
+      color: var(--teal);
       letter-spacing: 3px;
       text-align: center;
-      text-shadow: 0 0 18px rgba(30,144,255,0.55), 0 2px 8px rgba(0,0,0,0.8);
+      line-height: 1.2;
     }
 
     /* ── TAGLINE STRIP ───────────────────────────────── */
     .tagline-strip {
-      background: linear-gradient(90deg, var(--black) 0%, var(--blue-deep) 35%, var(--blue-mid) 50%, var(--blue-deep) 65%, var(--black) 100%);
+      background: #0A1520;
+      border-bottom: 1px solid var(--border);
       text-align: center;
-      padding: 11px 20px;
+      padding: 10px 20px;
       font-family: 'Yatra One', cursive;
-      font-size: clamp(0.95rem, 2.5vw, 1.25rem);
-      color: #fff;
-      letter-spacing: 4px;
-      border-bottom: 1px solid var(--black-border);
-      text-shadow: 0 0 12px rgba(30,144,255,0.6);
+      font-size: clamp(0.88rem, 2vw, 1.1rem);
+      color: var(--cyan);
+      letter-spacing: 5px;
     }
 
-    /* ── MAIN CONTENT ────────────────────────────────── */
+    /* ── MAIN ────────────────────────────────────────── */
     .main-content {
-      max-width: 880px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 50px 20px 70px;
+      padding: 48px 20px 72px;
     }
 
     /* ── ACCORDION ───────────────────────────────────── */
     .accordion {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
     }
 
     .accordion-item {
-      background: var(--black-card);
-      border: 1px solid var(--black-border);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: 14px;
       overflow: hidden;
-      box-shadow: var(--shadow-blue);
-      transition: box-shadow 0.3s, border-color 0.3s;
+      transition: border-color 0.25s, box-shadow 0.25s;
     }
     .accordion-item:hover {
-      border-color: var(--blue-mid);
-      box-shadow: 0 6px 36px rgba(30,144,255,0.22);
+      border-color: var(--border-hover);
+      box-shadow: var(--glow-teal);
+    }
+    .accordion-item.is-open {
+      border-color: rgba(45,212,191,0.3);
+      box-shadow: var(--glow-teal);
     }
 
     .accordion-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 20px 26px;
+      padding: 20px 24px;
       cursor: pointer;
       user-select: none;
       background: transparent;
       border: none;
       width: 100%;
       text-align: left;
-      transition: background 0.25s;
-      gap: 12px;
+      gap: 14px;
+      transition: background 0.2s;
     }
-    .accordion-header:hover {
-      background: linear-gradient(90deg, rgba(30,144,255,0.07), transparent);
-    }
-    .accordion-header.open {
-      background: linear-gradient(90deg, rgba(30,144,255,0.13), rgba(21,101,192,0.06));
-      border-bottom: 1px solid var(--black-border);
-    }
+    .accordion-header:hover { background: rgba(45,212,191,0.04); }
+    .accordion-header.open  { background: rgba(45,212,191,0.06); border-bottom: 1px solid var(--border); }
 
-    .acc-icon {
-      font-size: 1.4rem;
-      margin-right: 12px;
-      flex-shrink: 0;
-    }
+    .acc-icon { font-size: 1.35rem; flex-shrink: 0; }
+
     .acc-title {
       font-family: 'Yatra One', cursive;
-      font-size: clamp(1.05rem, 2.5vw, 1.3rem);
-      color: var(--blue-glow);
-      letter-spacing: 0.5px;
+      font-size: clamp(1rem, 2.4vw, 1.25rem);
+      color: var(--text-main);
+      letter-spacing: 0.4px;
       flex: 1;
     }
+
     .acc-chevron {
       flex-shrink: 0;
-      width: 26px;
-      height: 26px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      background: var(--blue-mid);
+      border: 1px solid var(--border-hover);
+      background: var(--bg-soft);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.35s cubic-bezier(.4,0,.2,1), background 0.25s;
-      box-shadow: 0 0 8px rgba(30,144,255,0.4);
+      transition: transform 0.35s cubic-bezier(.4,0,.2,1), border-color 0.2s, background 0.2s;
     }
     .accordion-header.open .acc-chevron {
       transform: rotate(180deg);
-      background: var(--blue-bright);
+      border-color: var(--teal);
+      background: rgba(45,212,191,0.12);
     }
-    .acc-chevron svg { display: block; }
 
     .accordion-body {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.45s cubic-bezier(.4,0,.2,1);
-      padding: 0 26px;
+      padding: 0 24px;
     }
     .accordion-body.open {
-      max-height: 2000px;
-      padding: 22px 26px 28px;
+      max-height: 2400px;
+      padding: 22px 24px 28px;
     }
 
     .accordion-body p {
+      font-size: 0.95rem;
       color: var(--text-body);
-      font-size: 0.96rem;
       margin-bottom: 14px;
     }
     .accordion-body p:last-child { margin-bottom: 0; }
-    .accordion-body strong { color: var(--blue-glow); }
+    .accordion-body strong { color: var(--teal); font-weight: 600; }
 
-    /* ── SECTION DIVIDER ─────────────────────────────── */
+    /* ── DIVIDER ─────────────────────────────────────── */
     .section-divider {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin: 16px 0 14px;
-    }
-    .section-divider span {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--blue-bright);
-      white-space: nowrap;
+      margin: 20px 0 14px;
     }
     .section-divider::before,
     .section-divider::after {
       content: '';
       flex: 1;
       height: 1px;
-      background: var(--black-border);
+      background: var(--border);
+    }
+    .section-divider span {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--teal-dim);
+      white-space: nowrap;
     }
 
-    /* ── FEATURE GRID ────────────────────────────────── */
+    /* ── FEATURE TAGS ────────────────────────────────── */
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
-      gap: 9px;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 8px;
       margin-top: 10px;
     }
     .feature-tag {
-      background: var(--black-soft);
-      border: 1px solid var(--black-border);
-      border-left: 3px solid var(--blue-bright);
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--teal);
       border-radius: 8px;
       padding: 9px 13px;
-      font-size: 0.87rem;
+      font-size: 0.85rem;
       color: var(--text-body);
-      font-weight: 500;
       display: flex;
       align-items: center;
       gap: 8px;
       transition: border-color 0.2s, background 0.2s;
     }
     .feature-tag:hover {
-      background: rgba(30,144,255,0.08);
-      border-left-color: var(--blue-glow);
+      background: var(--bg-hover);
+      border-left-color: var(--cyan);
+      color: var(--text-main);
     }
     .feature-tag::before {
-      content: '◆';
-      color: var(--blue-bright);
-      font-size: 0.55rem;
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--teal);
       flex-shrink: 0;
     }
 
@@ -238,12 +237,12 @@
     .why-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 11px;
+      gap: 10px;
       margin-top: 12px;
     }
     .why-card {
-      background: var(--black-soft);
-      border: 1px solid var(--black-border);
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
       border-radius: 10px;
       padding: 13px 15px;
       font-size: 0.9rem;
@@ -251,13 +250,19 @@
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, background 0.2s;
     }
-    .why-card:hover { border-color: var(--blue-mid); }
-    .why-card .bullet {
-      color: var(--blue-bright);
-      font-size: 0.9rem;
-      margin-top: 2px;
+    .why-card:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-hover);
+      color: var(--text-main);
+    }
+    .why-card .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      margin-top: 7px;
       flex-shrink: 0;
     }
 
@@ -267,103 +272,106 @@
       margin-top: 10px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
     }
     .vision-list li {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.94rem;
       color: var(--text-body);
-      font-size: 0.95rem;
-      padding: 9px 0;
-      border-bottom: 1px solid var(--black-border);
+      transition: color 0.2s;
     }
     .vision-list li:last-child { border-bottom: none; }
+    .vision-list li:hover { color: var(--text-main); }
     .vision-list li::before {
-      content: '▶';
-      color: var(--blue-bright);
-      font-size: 0.6rem;
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
       flex-shrink: 0;
     }
 
     /* ── HIGHLIGHT BOX ───────────────────────────────── */
     .highlight-box {
-      background: rgba(30,144,255,0.07);
-      border: 1px solid var(--black-border);
-      border-left: 4px solid var(--blue-bright);
+      background: rgba(45,212,191,0.05);
+      border: 1px solid rgba(45,212,191,0.2);
+      border-left: 3px solid var(--teal);
       border-radius: 10px;
-      padding: 15px 18px;
-      margin-top: 18px;
+      padding: 16px 18px;
+      margin-top: 20px;
+      font-size: 0.92rem;
+      color: var(--text-body);
       font-style: italic;
-      color: var(--text-muted);
-      font-size: 0.93rem;
+      line-height: 1.65;
     }
-    .highlight-box strong { color: var(--blue-glow); font-style: normal; }
+    .highlight-box strong { font-style: normal; }
 
-    /* ── MISSION STATEMENT ───────────────────────────── */
-    .mission-statement {
-      background: linear-gradient(135deg, #060c1f, #0d1a38);
-      color: var(--text-main);
+    /* ── MISSION BOX ─────────────────────────────────── */
+    .mission-box {
+      background: linear-gradient(135deg, #0D1E2E, #0A1520);
+      border: 1px solid rgba(45,212,191,0.2);
       border-radius: 14px;
-      padding: 28px 30px;
-      margin-top: 10px;
-      font-size: 1.05rem;
-      line-height: 1.85;
+      padding: 30px 28px;
+      margin-top: 8px;
       text-align: center;
-      border: 1px solid var(--blue-deep);
-      box-shadow: 0 0 30px rgba(30,144,255,0.15);
+      font-size: 1rem;
+      color: var(--text-body);
+      line-height: 1.9;
     }
-    .mission-statement strong { color: var(--blue-glow); }
+    .mission-box strong { color: var(--teal); }
 
     /* ── FOOTER ──────────────────────────────────────── */
     footer {
-      background: linear-gradient(180deg, #06091a 0%, #000000 100%);
+      background: #0A0F18;
+      border-top: 1px solid var(--border);
       color: var(--text-muted);
       text-align: center;
-      padding: 36px 20px 28px;
-      border-top: 2px solid var(--blue-deep);
+      padding: 38px 20px 28px;
     }
-    footer p { margin-bottom: 10px; font-size: 0.9rem; }
-    footer strong { color: var(--blue-glow); font-family: 'Yatra One', cursive; letter-spacing: 1px; }
+    footer p { margin-bottom: 10px; font-size: 0.88rem; }
+    footer strong { color: var(--teal); font-family: 'Yatra One', cursive; letter-spacing: 1px; }
 
     .social-icons {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin: 14px 0 18px;
+      gap: 18px;
+      margin: 14px 0 20px;
     }
     .social-icons a {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--black-border);
-      transition: background 0.25s, transform 0.2s, border-color 0.2s;
-      font-size: 1.4rem;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      font-size: 1.35rem;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
     }
     .social-icons a:hover {
-      background: rgba(30,144,255,0.18);
-      border-color: var(--blue-mid);
+      border-color: var(--teal);
+      background: rgba(45,212,191,0.1);
       transform: translateY(-3px);
     }
 
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 600px) {
+      .site-header { padding: 16px 16px; }
       .accordion-header { padding: 16px 16px; }
       .accordion-body.open { padding: 16px 16px 22px; }
       .feature-grid { grid-template-columns: 1fr 1fr; }
       .why-grid { grid-template-columns: 1fr; }
-      .main-content { padding: 28px 12px 50px; }
-      .site-header { padding: 14px 16px; }
+      .main-content { padding: 28px 14px 56px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── HEADER ─────────────────────────────────────── -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="header-content">
       <img src="assets/image-1.png" alt="Digital Dravida Logo" class="logo" />
@@ -371,10 +379,10 @@
     </div>
   </header>
 
-  <!-- ── TAGLINE ────────────────────────────────────── -->
+  <!-- TAGLINE -->
   <div class="tagline-strip">✦ &nbsp; Soul of the South &nbsp; ✦</div>
 
-  <!-- ── MAIN ACCORDIONS ────────────────────────────── -->
+  <!-- ACCORDIONS -->
   <main class="main-content">
     <div class="accordion">
 
@@ -384,28 +392,26 @@
           <span class="acc-icon">🌿</span>
           <span class="acc-title">About Us</span>
           <span class="acc-chevron">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2 5l5 5 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+              <path d="M2 5l5 5 5-5" stroke="#2DD4BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </button>
         <div class="accordion-body">
           <p>Digital Dravida is a hyperlocal digital media, creative advertising, and community-driven platform originating from <strong>Kuppam</strong>, built with a vision to amplify the voices, stories, businesses, and opportunities of South India.</p>
           <p>Rooted in regional culture and powered by modern digital storytelling, Digital Dravida connects people across <strong>Andhra Pradesh, Karnataka, and Tamil Nadu</strong> — starting from the grassroots.</p>
-
           <div class="section-divider"><span>We Specialize In</span></div>
           <div class="feature-grid">
-            <div class="feature-tag">Podcasts & Interviews</div>
+            <div class="feature-tag">Podcasts &amp; Interviews</div>
             <div class="feature-tag">Hyperlocal News</div>
             <div class="feature-tag">Business Promo Reels</div>
             <div class="feature-tag">Social Media Branding</div>
             <div class="feature-tag">Digital Ad Campaigns</div>
-            <div class="feature-tag">Job Updates & Hiring</div>
+            <div class="feature-tag">Job Updates &amp; Hiring</div>
             <div class="feature-tag">AI-Driven Media</div>
             <div class="feature-tag">Creative Production</div>
-            <div class="feature-tag">Cultural & Lifestyle Coverage</div>
+            <div class="feature-tag">Cultural &amp; Lifestyle Coverage</div>
           </div>
-
           <div class="highlight-box">
             🎙️ Through our flagship podcast series <strong>"Talk with Tata"</strong>, Digital Dravida has built a growing reputation for authentic conversations, local storytelling, and impactful digital reach.
           </div>
@@ -418,20 +424,18 @@
           <span class="acc-icon">📡</span>
           <span class="acc-title">What We Do</span>
           <span class="acc-chevron">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2 5l5 5 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+              <path d="M2 5l5 5 5-5" stroke="#2DD4BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </button>
         <div class="accordion-body">
-
           <div class="section-divider"><span>Hyperlocal Media Platform</span></div>
           <p>We create regional-first digital content including podcasts, interviews, cultural stories, political discussions, education updates, tourism highlights, festival coverage, and community-driven storytelling.</p>
-
           <div class="section-divider"><span>Digital Dravida Ad Agency</span></div>
           <p>We help businesses, creators, institutions, and public figures grow digitally through:</p>
           <div class="feature-grid">
-            <div class="feature-tag">Instagram & Facebook Reels</div>
+            <div class="feature-tag">Instagram &amp; Facebook Reels</div>
             <div class="feature-tag">Promo Videos</div>
             <div class="feature-tag">Social Media Management</div>
             <div class="feature-tag">Festival Creatives</div>
@@ -439,18 +443,16 @@
             <div class="feature-tag">Campaign Marketing</div>
             <div class="feature-tag">AI Content Creation</div>
           </div>
-
-          <div class="section-divider"><span>Jobs & Consultancy</span></div>
+          <div class="section-divider"><span>Jobs &amp; Consultancy</span></div>
           <p>We connect local talent with local opportunities by providing:</p>
           <div class="feature-grid">
             <div class="feature-tag">Verified Job Updates</div>
             <div class="feature-tag">Hiring Assistance</div>
-            <div class="feature-tag">Resume & Profile Support</div>
+            <div class="feature-tag">Resume &amp; Profile Support</div>
             <div class="feature-tag">Internship Opportunities</div>
             <div class="feature-tag">Digital Career Guidance</div>
           </div>
-
-          <p style="margin-top:16px; font-style:italic; color: var(--text-muted);">Our focus is simple: Create content that reaches people, builds visibility, and drives local engagement.</p>
+          <p style="margin-top:18px; font-style:italic; color:var(--text-muted); font-size:0.9rem;">Our focus is simple: Create content that reaches people, builds visibility, and drives local engagement.</p>
         </div>
       </div>
 
@@ -460,8 +462,8 @@
           <span class="acc-icon">🌄</span>
           <span class="acc-title">Our Vision</span>
           <span class="acc-chevron">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2 5l5 5 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+              <path d="M2 5l5 5 5-5" stroke="#2DD4BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </button>
@@ -469,9 +471,9 @@
           <p>To become the <strong>digital voice of the South</strong> by building a trusted regional ecosystem that supports:</p>
           <ul class="vision-list">
             <li>Local businesses through AI-driven media solutions</li>
-            <li>Creators & entrepreneurs</li>
+            <li>Creators &amp; entrepreneurs</li>
             <li>Youth opportunities</li>
-            <li>Regional culture & storytelling</li>
+            <li>Regional culture &amp; storytelling</li>
             <li>Hyperlocal digital growth</li>
             <li>Community empowerment</li>
           </ul>
@@ -484,20 +486,20 @@
           <span class="acc-icon">💡</span>
           <span class="acc-title">Why Digital Dravida?</span>
           <span class="acc-chevron">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2 5l5 5 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+              <path d="M2 5l5 5 5-5" stroke="#2DD4BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </button>
         <div class="accordion-body">
           <div class="why-grid">
-            <div class="why-card"><span class="bullet">✦</span><span>Hyperlocal understanding with regional vision</span></div>
-            <div class="why-card"><span class="bullet">✦</span><span>Strong social media reach & engagement</span></div>
-            <div class="why-card"><span class="bullet">✦</span><span>Youth-driven creative ecosystem</span></div>
-            <div class="why-card"><span class="bullet">✦</span><span>Community-first storytelling</span></div>
-            <div class="why-card"><span class="bullet">✦</span><span>Affordable digital branding solutions</span></div>
-            <div class="why-card"><span class="bullet">✦</span><span>AI-assisted media & creative workflows</span></div>
-            <div class="why-card"><span class="bullet">✦</span><span>Multi-service digital support under one platform</span></div>
+            <div class="why-card"><span class="dot"></span><span>Hyperlocal understanding with regional vision</span></div>
+            <div class="why-card"><span class="dot"></span><span>Strong social media reach &amp; engagement</span></div>
+            <div class="why-card"><span class="dot"></span><span>Youth-driven creative ecosystem</span></div>
+            <div class="why-card"><span class="dot"></span><span>Community-first storytelling</span></div>
+            <div class="why-card"><span class="dot"></span><span>Affordable digital branding solutions</span></div>
+            <div class="why-card"><span class="dot"></span><span>AI-assisted media &amp; creative workflows</span></div>
+            <div class="why-card"><span class="dot"></span><span>Multi-service digital support under one platform</span></div>
           </div>
         </div>
       </div>
@@ -508,37 +510,38 @@
           <span class="acc-icon">🚀</span>
           <span class="acc-title">Our Mission</span>
           <span class="acc-chevron">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2 5l5 5 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+              <path d="M2 5l5 5 5-5" stroke="#2DD4BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </button>
         <div class="accordion-body">
-          <div class="mission-statement">
-            To empower <strong>South Indian communities</strong> through digital media, AI-driven creative solutions, hyperlocal storytelling, branding support, and meaningful local opportunities —<br><br>
+          <div class="mission-box">
+            To empower <strong>South Indian communities</strong> through digital media, AI-driven creative solutions,
+            hyperlocal storytelling, branding support, and meaningful local opportunities —<br><br>
             and remain the <strong>digital voice of the South</strong>.
           </div>
         </div>
       </div>
 
-    </div><!-- /accordion -->
+    </div>
   </main>
 
-  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <!-- FOOTER -->
   <footer>
     <p><strong>Follow Us</strong></p>
     <div class="social-icons">
       <a href="https://www.youtube.com/@DigitalDravida" target="_blank" aria-label="YouTube">
-        <ion-icon name="logo-youtube" style="color: red"></ion-icon>
+        <ion-icon name="logo-youtube" style="color:#FF0000;"></ion-icon>
       </a>
       <a href="https://www.facebook.com/vibrantdravida" target="_blank" aria-label="Facebook">
-        <ion-icon name="logo-facebook" style="color: #4267B2"></ion-icon>
+        <ion-icon name="logo-facebook" style="color:#4267B2;"></ion-icon>
       </a>
       <a href="https://www.instagram.com/digitaldravida" target="_blank" aria-label="Instagram">
-        <ion-icon name="logo-instagram" style="color: rgb(240, 84, 183)"></ion-icon>
+        <ion-icon name="logo-instagram" style="color:#E1306C;"></ion-icon>
       </a>
       <a href="https://x.com/DigitalDravida" target="_blank" aria-label="Twitter">
-        <ion-icon name="logo-twitter" style="color: rgb(32, 178, 236)"></ion-icon>
+        <ion-icon name="logo-twitter" style="color:#1DA1F2;"></ion-icon>
       </a>
     </div>
     <p>© 2025 Digital Dravida. All Rights Reserved.</p>
@@ -550,16 +553,21 @@
   <script>
     function toggleAccordion(btn) {
       const body = btn.nextElementSibling;
+      const item = btn.closest('.accordion-item');
       const isOpen = btn.classList.contains('open');
+
       document.querySelectorAll('.accordion-header.open').forEach(b => {
         b.classList.remove('open');
         b.setAttribute('aria-expanded', 'false');
         b.nextElementSibling.classList.remove('open');
+        b.closest('.accordion-item').classList.remove('is-open');
       });
+
       if (!isOpen) {
         btn.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');
         body.classList.add('open');
+        item.classList.add('is-open');
       }
     }
   </script>
